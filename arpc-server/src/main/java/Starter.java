@@ -30,7 +30,7 @@ public class Starter {
                         ObjectInputStream input = new ObjectInputStream(socket.getInputStream());
                         RpcContext context = (RpcContext)input.readObject();
 
-                        Class serviceClass = ServiceMap.getService(context.serviceName);
+                        Class serviceClass = ServiceMap.getService(context.interfaceName);
                         Method method = serviceClass.getMethod(context.methodName, context.parameterTypes);
                         Object result = method.invoke(serviceClass.newInstance(), context.parameterValues);
 

@@ -17,14 +17,14 @@ import java.io.Serializable;
  */
 public class RpcContext implements Serializable {
 
-    public RpcContext(String serviceName, String methodName, Class<?>[] parameterTypes,Object[] parameterValues) {
-        this.serviceName = serviceName;
+    public RpcContext(String interfaceName, String methodName, Class<?>[] parameterTypes,Object[] parameterValues) {
+        this.interfaceName = interfaceName;
         this.methodName = methodName;
         this.parameterTypes = parameterTypes;
         this.parameterValues = parameterValues;
     }
 
-    public String serviceName;
+    public String interfaceName;
     public String methodName;
     public  Class<?>[] parameterTypes;
     public Object[] parameterValues;

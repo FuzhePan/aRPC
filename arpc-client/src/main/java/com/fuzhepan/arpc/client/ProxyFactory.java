@@ -37,9 +37,10 @@ public class ProxyFactory {
     private static Object createProxy(String url,Class classType){
         url = url.replace("rpc://", "");
         String[] splits = url.split("/");
-        String serviceName = splits[1];
+        String serviceName = splits[0];
+        String interfaceName = splits[1];
 
-        ProxyHandler proxyHandler = new ProxyHandler(serviceName);
+        ProxyHandler proxyHandler = new ProxyHandler(serviceName,interfaceName);
         return Proxy.newProxyInstance(Thread.currentThread().getContextClassLoader(), new Class[]{classType}, proxyHandler);
     }
 }
